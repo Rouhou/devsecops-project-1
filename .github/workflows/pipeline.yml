@@ -55,7 +55,7 @@ jobs:
     steps:
       # Pull image from DockerHub
       - name: Pull image
-        run: docker pull $IMAGE:$TAG
+        run: docker pull rouhou/devsecops-app:dev
 
       # Block deployment if CRITICAL vulnerabilities
       - name: Scan image (block CRITICAL)
