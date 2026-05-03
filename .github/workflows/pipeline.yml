@@ -32,7 +32,7 @@ jobs:
       - name: Scan Docker image
         uses: aquasecurity/trivy-action@v0.24.0
         with:
-          image-ref: fs
+          scan-type: fs
           severity: HIGH,CRITICAL
           exit-code: 0
 
