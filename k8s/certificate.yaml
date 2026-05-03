@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: devsecops-cert
+spec:
+  secretName: devsecops-tls
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+  commonName: devsecops.local
+  dnsNames:
+    - devsecops.local
