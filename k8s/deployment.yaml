@@ -11,9 +11,29 @@ spec:
     metadata:
       labels:
         app: devsecops
+
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+        fsGroup: 101
+
       containers:
         - name: nginx
           image: rouhou/devsecops-app:dev
           ports:
             - containerPort: 80
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            runAsUser: 101
+
+          volumeMounts:
+            - name: nginx-cache
+              mountPath: /var/cache/nginx
+
+      volumes:
+        - name: nginx-cache
+          emptyDir: {}
