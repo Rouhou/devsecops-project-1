@@ -54,7 +54,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push image
-        run: docker push $IMAGE:$TAG
+        run: docker push rouhou/devsecops-app:dev
 
   scan-prod:
     if: github.ref == 'refs/heads/prod'
