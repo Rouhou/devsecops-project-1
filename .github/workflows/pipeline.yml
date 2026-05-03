@@ -61,7 +61,7 @@ jobs:
       - name: Scan image (block CRITICAL)
         uses: aquasecurity/trivy-action@v0.24.0
         with:
-          image-ref: $IMAGE:$TAG
+          scan-type: fs
           severity: CRITICAL
           exit-code: 1
 
