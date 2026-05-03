@@ -6,4 +6,4 @@ COPY app /usr/share/nginx/html
 
 EXPOSE 80
 
-USER 1000
+CMD ["nginx", "-g", "daemon off;"]
